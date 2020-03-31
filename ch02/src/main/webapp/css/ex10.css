@@ -1,0 +1,8 @@
+@charset "UTF-8";
+body{
+	padding: 0;
+	margin: 10px;
+	font-size: 12px;
+	font-family: '맑은 고딕','돋움',Helvetica,"Apple SD Gothic Neo",sans-serif;
+	font-color:#333;
+}
