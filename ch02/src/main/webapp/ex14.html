@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	input{
+			background-color: #fff;
+			border:2px solid #03CF5D;
+			outline: none 
+	}
+	input#user-id			{background-color: #EB9095; }
+	input#user-id.focused	{background-color: #E1E6F6;}
+</style>
+
+<script>
+function changeBackGround(input){
+	input.className="focused";
+}
+
+</script>
+
+</head>
+<body>
+	<form>
+	<input type='text' class='' id='user-id' onFocus='changeBackGround(this, "focused");' onBlur='changeBackGround(this, "")' />
+	<br/>
+	<input type='password' name="password" />
+	</form>
+</body>
+</html>
