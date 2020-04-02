@@ -4,31 +4,71 @@
 <meta charset="utf-8">
 <title>테이블</title>
 <style type="text/css" media="screen">
-*						{ margin:0; padding:0 }
-body					{ font-family: '맑은 고딕' 돋움; font-size:0.75em; color:#333 }
+* {
+	margin: 0;
+	padding: 0
+}
 
-.tbl-ex					{ margin:10px auto; border:1px solid #333; border-collapse:collapse; border-left-width:0; border-right-width:0 }
+body {
+	font-family: '맑은 고딕' 돋움;
+	font-size: 0.75em;
+	color: #333
+}
 
-.tbl-ex th, .tbl-ex td	{ border:1px solid #333; padding:8px; border-left-width:0; border-right-width:0  } 
+table {
+	margin: 50px auto 0 auto;
+}
 
-.tbl-ex th				{ background-color:#999; font-size:1.1em; color:#fff; border-top-width:2px; border-bottom-width:2px }
-.tbl-ex td				{ border-style:dotted }
-.tbl-ex tr.even			{ background-color:#E8ECF6  }
+.tbl-ex {
+	border: 1px solid #333;
+}
 
-.tbl-ex tr:hover,
-.tbl-ex tr.even:hover 	{ background-color:#fc6; cursor:pointer }
+.tbl-ex, .tbl-ex td, .tbl-ex th {
+	border-collapse: collapse;
+	border-style: solid;
+	border-color: #333;
+	border-width: 1px 0;
+}
+
+
+.tbl-ex td, .tbl-ex th {
+	padding: 8px;
+}
+
+.tbl-ex th {
+	background-color: #999;
+	font-size: 1.1em;
+	color: #fff;
+	font-weight: bold;
+	border-width: 2px 0;
+}
+
+.tbl-ex td {
+	border-style: dotted;	
+	
+}
+
+
+.tbl-ex tr:hover td, .tbl-ex tr.even:hover td { /* tr이 hover가 되면 td를 바꾸는데 even이 있어도 hover가 even을 덮기때문에 마우스를 갖다대도 색이 안바뀌므로 지정해준 even:hover. */
+	background-color: #fc6;
+	cursor: pointer;
+}
+
+.tbl-ex tr:nth-child(odd) td { /*  */
+	background-color: #E8ECF6;
+}
 
 </style>
 </head>
 <body>
 	<table class="tbl-ex">
-		<tr>
+		<tr >
 			<th>형식</th>
 			<th>선택자 이름</th>
 			<th>스타일 적용 요소</th>
 			<th>호환성</th>
 		</tr>
-		<tr>
+		<tr class="a">
 			<td>a</td>
 			<td>HTML</td>
 			<td>모든 HTML에 적용</td>
@@ -63,7 +103,7 @@ body					{ font-family: '맑은 고딕' 돋움; font-size:0.75em; color:#333 }
 			<td>전체 선택</td>
 			<td>모든 HTML 태그에 적용</td>
 			<td>IE4, FF1,Safari 1, 크롬 1,오페라 3.5, CSS2</td>
-		</tr>	
+		</tr>
 	</table>
 </body>
 </html>

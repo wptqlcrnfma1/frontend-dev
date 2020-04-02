@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>리스트를 이용한 메뉴 만들기</title>
+
+<style type="text/css">
+*		{ margin:0; padding:0 }
+ul, ol	{list-style-type: none;}
+body	{ font-family: '맑은 고딕' 돋움; font-size:0.75em; color:#333 }
+
+.tab-box{
+	width:520px;
+	margin:50px auto;
+}
+
+.tab-box ul{
+	height:24px;
+}
+
+.tab-box ul li{ /* ul 밑에있는 li */
+	float:right;
+	width:100px;
+	line-height:22px;
+	border:1px solid #ccc;
+	border-radius: 10px 10px 0 0;
+	background-color: #ccc;
+	text-align:center;
+	margin-right:2px;
+	
+}
+.tab-box ul li.selected {
+	background-color: #FC6;
+}
+
+.tab-box div{
+	width: 516px;
+	border: 1px solid #999;
+	margin-top:-1px;
+	text-align: center;
+	line-height: 200px;
+}
+
+</style>
+<script>
+//DOM Level 1 Event 처리 : element의 event attribute 사용하는 방식
+//2) JavaScript code(DOM API)로만 작성
+
+//객체가 속성이 없는데 동적으로 만들어서 넣어준다. document로 접근한다.
+
+
+var liSelected = null;
+var onTabClicked = function(){
+	
+	//unselect
+	var liSelecetds = document.getElementsByClassName('selected');//document에 가서 selected를 가지고 있는 객체 요청
+	(liSelecetds.length == 1) && (liSelecetds[0].className = '');		
+
+	// seclect
+	this.className = 'selected';
+}
+
+
+//document.getElementByTagName; //지금은 되지만 li가 다른 곳에도 있으면 다른 속성을 타고 차례대로 구해야한다. 
+window.onload = function(){
+	// div : class='tab-box'  //innerText : 누른 li의 text가 담기게 된다.
+	var divTabBox = document.getElementsByClassName('tab-box')[0]; //배열을 return하게 되있다.
+	var ulTabBox = divTabBox.childNodes[1]; // 참고용! 0이 아닌 1을 한다. ul이 첫번째꺼라 0일것 같은데 1이다. 0은 contents들이 들어있음. 궁금하면 찍어볼것 api인 getElementsByClassName를 불러주는게 좋다.
+	var liTabs = ulTabBox.getElementsByTagName('li') //원래는 이걸 써야한다.
+	
+	for(var i =0;i<liTabs.length;i++){	 //함수를 바로 부는 거 눌렀을때 실행된다.
+		liTabs[i].onclick = onTabClicked;
+	}
+}
+</script>
+</head>
+<body>
+<div class="tab-box">
+	<ul>
+        <li>메뉴 5</li>
+        <li >메뉴 4</li>
+        <li >메뉴 3</li>
+        <li >메뉴 2</li>
+        <li >메뉴 1</li>
+    </ul>
+    <div>
+    	탭뷰입니다.ㅎㅎ
+    </div>
+</div>    
+</body>
+</html>

@@ -8,7 +8,7 @@ p {
 	font-family: "맑은 고딕";
 	font-size: 0.75em;
 	line-height:1.5em;
-	text-align:justify;
+	text-align:left;
 }
 
 p.text1 {
@@ -40,14 +40,41 @@ p.cap {
 
 p.up {
 	text-transform: uppercase;
-	letter-spacing:0px;
+	letter-spacing:-1px;
 }
 
 p.word_space {
 	word-spacing:10px;
 }
 
+/* ellipsis - 다중 라인 처리(Block Level)*/
+p.text4 {
+	width: 130px;
+	line-height: 1.2em;
+	height: 3.6em;
+	border: 1px solid #999;
+	
+	overflow:hidden;
+	text-overflow: ellipsis;
+	word-wrap: break-word;
+	white-space: nowrap;  
+	
+	display: -webkit-box;
+	-webkit-line-clamp: 3;    /* 라인수 */
+	-webkit-box-orient: vertical;
+}
 
+
+/* ellipsis - 한줄 라인 처리(Block Level)*/
+p.text3 {
+	width: 70px;                 /* 텍스트를 가지고 있는 element의 너비 */
+	height: 20px;
+	padding: 0 5px;
+	border:1px solid #999;
+	overflow: hidden;            /* 글자 길이가 너비를 넘어 갈 경우 보이지 않게 처리 */
+	text-overflow: ellipsis;     /* 글자 길이가 너비를 넘어 갈 경우 ... 처리 */
+	white-space: nowrap          /* 공백 문자인 경우 줄바꿈 금지, 한줄 처리 */
+}	
 </style>
 </head>
 
@@ -58,11 +85,17 @@ p.word_space {
 <p class="text1"> 아아! 우리는 그 때 얼마나 존경하는 마음으로 그를 보았는가? <span class="over">춘원이 이 모든 반역적 사조를 완전한   의식하에 그의 작품에 집어 넣은 것은 사실이다</span>. 그 '의식(意識)'이 어떤 종류의 것인지는 우리는 좀 연구하여 볼 필요가   있다.</p>
 <p class="text2"> 1. 이 사조를 선포키 위하여? 혹은 2. 당시 청년계에 환영받을 사조가 포함된 소설을 발표하여   그들로 하여금 소설에 대한 취미를 느끼게 하기 위하여?</p>
 <p class="text1"> 제1문(問)은 뒤로 미루고 제2문을 볼 때 우리는 춘원의 밀모(密謀)의 완전한 성공을 볼 수 있다.   </p>
-
 <p class="cap">영문자는 abc 로 시작됩니다.</p>
 <p class="up">영문자는 abc 로 시작됩니다.</p>
 <p>면적을 나타내는 단위는 cm<span class="vertical">2</span>, m<span class="vertical">2</span>, km<span class="vertical">2</span> 등이 있습니다.</p>
-<p class="word_space"> 단어와 단어 사이의 간격을 조절합니다.</p>
+<p class="word_space">단어와 단어 사이의 간격을 조절합니다.</p>
 
+<p class='text3' title='영문자는 abc 로 시작됩니다.'>영문자는 abc 로 시작됩니다.</p>
+<p class='text4'>
+	aaaaaaaaaaaaaaaaaa<br/>
+	bbbbbbbbbbbbbbbbbb<br/>
+	cccccccccccccccccc<br/>
+	dddddddddddddddddd<br/>
+</p>
 </body>
 </html>
