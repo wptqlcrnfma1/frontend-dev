@@ -17,10 +17,14 @@ window.addEventListener('load', function(){
 	intervalId = setInterval(function(){
 		if(index >= rects.length){
 			clearInterval(intervalId);
+			return; //3개 찍고 끝내기
 		}
 		
 		
 		rects[index].show();
+		
+		console.log(rects[index].hasOwnProperty("x1"));
+		
 		index++;
 	}, 1000);
 });
