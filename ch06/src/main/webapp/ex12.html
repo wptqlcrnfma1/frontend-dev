@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+var s1 = "hello1";
+
+//에러: not a function
+//s1.myFunction();
+
+String.prototype.myFunction = function(){
+	console.log('mystring:' + this);
+}
+
+var s2 = "hello2";
+s2.myFunction();
+
+</script>
+
+</head>
+
+<body>
+
+
+</body>
+</html>
