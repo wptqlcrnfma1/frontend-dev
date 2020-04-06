@@ -16,3 +16,8 @@ Rect.prototype.show = function(){
 		"background-color:" + this.bg + "'>" + 
 		"</div>");
 }
+
+Rect.prototype.hasOwnProperty = function(property){
+	return ">>>> " + (property in this);
+	
+}
