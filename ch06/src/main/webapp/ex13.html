@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+var o = {
+		name:'마이콜',
+		age: 20,
+		hasProperty: function(property){
+		return property in this; 
+		}
+}
+
+//age 속성이 객체 o에 있냐
+console.log(o.hasProperty("name")); 
+console.log(o.hasProperty("age"));
+console.log(o.hasProperty("email"));
+
+console.log("========================================")
+
+console.log(o.hasOwnProperty("name")); //만들지 않아도 존재하는 매소드 // property 객체 안에 hasOwnProperty 가 있다.
+console.log(o.hasOwnProperty("age"));
+console.log(o.hasOwnProperty("email"));
+</script>
+</head>
+<body>
+<h1>in 연산자</h1>
+</body>
+</html>
