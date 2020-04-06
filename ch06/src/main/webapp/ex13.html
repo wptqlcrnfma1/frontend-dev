@@ -34,7 +34,7 @@ console.log("===============for ~ in================")
 var data = "";
 for(var property in o){
 	if(typeof(o[property]) != 'function') // property는 string이므로 o.property = o["property"] (x) / function은 호출이므로 제외
-	data += (o[property] + ":");
+	data += (o[property]);
 }
 console.log(data); //마이콜,20 처럼 출력하고싶다.
 
