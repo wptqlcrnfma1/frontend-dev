@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+window.addEventListener("load", function(){
+	var html = "<h1>Hello DOM</h1>";
+	
+	var img = document.createElement('img');
+	
+	setTimeout(function(){
+		document.body.appendChild(img);
+		
+		img.src = "https://ww.namu.la/s/a467406c13eeddcecf0a8b2915e97981aba0ae07d6fcf693a6785e5af1c236197cbf27c7b53a9f8a016907f4805caa2baceb3e33a8b663bd4b4f33c14fe50a2e7df9ec7244ec90eac3c1754afce507ec24f9e31ab148779f79b0741fbd5e33b8";
+		img.width = 400;
+		img.alt = '나무';
+		img.title='나무';
+		img["data-name"] = '나무'; // 비표준이라 콘솔에서 확인불가
+		
+	},2000);
+	
+});
+</script>
+</head>
+<body>
+	<h1>HTMLElement 속성 조작하기</h1>
+</body>
+</html>
