@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+window.addEventListener("load", function(){
+	var html = "<h1>Hello DOM</h1>";
+	
+	setTimeout(function(){
+		//document.body.innerHTML = html; 덮혀진다. Hello DOM만 출력
+		document.body.innerHTML += html; 
+	},2000);
+	
+});
+	
+</script>
+</head>
+<body>
+	<h1>HTMLElement 만들기 02</h1>
+</body>
+</html>

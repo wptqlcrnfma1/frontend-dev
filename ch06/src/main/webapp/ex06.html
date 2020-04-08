@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+//가능하면 documnet write는 쓰지마라 => document의 elements를 바꾸기 때문
+window.addEventListener("load", function(){
+	var h1Element = document.createElement('h1'); //body에 붙을거다.
+	var textNode = document.createTextNode('Hello DOM');
+	
+	h1Element.append(textNode); //텍스트노드 하나를 추가한것
+	
+	setTimeout(function(){
+		document.body.appendChild(h1Element); //최상단은 . 으로 접근가능 여기서 트리 그림의 body에 h1이 붙는다 즉 이때 그림이 변하면서 그린다.
+	},2000);
+	
+});
+
+</script>
+</head>
+<body>
+	<h1>HTMLElement 만들기 01</h1>
+</body>
+</html>
