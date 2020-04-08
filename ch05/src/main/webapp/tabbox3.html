@@ -44,30 +44,35 @@ body	{ font-family: '맑은 고딕' 돋움; font-size:0.75em; color:#333 }
 <script>
 // DOM Level 2 Event 처리 : 특정 Element의 Event의 Listener를 등록 하는 방식 
 // 특정 이벤트 핸들러(Listener)를 여러개 등록할 수 있다.
+var TabBox={
+		init: function(){
+			window.addEventListener('load', this._onWindowLoad);
+		},
+		_onWindowLoad: function(){
+			// div: class='tab-box'
+			var divTabBox = document.getElementsByClassName('tab-box')[0];//배열을 return하게 되있다.
+			var ulTabBox = divTabBox.childNodes[1];// 참고용! 0이 아닌 1을 한다. ul이 첫번째꺼라 0일것 같은데 1이다. 0은 contents들이 들어있음. 궁금하면 찍어볼것 api인 getElementsByClassName를 불러주는게 좋다.
+			var liTabs = ulTabBox.getElementsByTagName('li');//원래는 이걸 써야한다.
+			
+			for(var i = 0; i < liTabs.length; i++){
+				liTabs[i].addEventListener('click', TabBox.onTabClicked); //('등록할 이벤트 속성' , 함수 이름) 등록할 이벤트 속성이 되면 함수 이름을 실행시켜라
+			}
+		},
+		
+		onTabClicked: function(){
+			//unselect
+			var liSelecetds = document.getElementsByClassName('selected');
+			(liSelecetds.length == 1) && (liSelecetds[0].className = '');		
 
-var onTabClicked = function(){
-	//unselect
-	var liSelecetds = document.getElementsByClassName('selected');
-	(liSelecetds.length == 1) && (liSelecetds[0].className = '');		
-
-	// seclect
-	this.className = 'selected';
+			// seclect
+			this.className = 'selected'; //this는 li 굳이 binding이 필요없다.
+		}
 }
 
-window.addEventListener('load', function(){
-	// div: class='tab-box'
-	var divTabBox = document.getElementsByClassName('tab-box')[0];//배열을 return하게 되있다.
-	var ulTabBox = divTabBox.childNodes[1];// 참고용! 0이 아닌 1을 한다. ul이 첫번째꺼라 0일것 같은데 1이다. 0은 contents들이 들어있음. 궁금하면 찍어볼것 api인 getElementsByClassName를 불러주는게 좋다.
-	var liTabs = ulTabBox.getElementsByTagName('li');//원래는 이걸 써야한다.
-	
-	for(var i = 0; i < liTabs.length; i++){
-		liTabs[i].addEventListener('click', onTabClicked); //('등록할 이벤트 속성' , 함수 이름) 등록할 이벤트 속성이 되면 함수 이름을 실행시켜라
-	}
-});
 
-window.addEventListener('load', function(){
-	console.log("dom loaded!!!!!");
-});
+TabBox.init();
+
+
 </script>
 </head>
 <body>

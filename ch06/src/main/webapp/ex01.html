@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript">
-console.log('Hello World');
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+var s = "";
+for(property in window){
+	s += (property + " : " + window[property] + "\n"); //윈도우 전역객체가 갖고 있는 프로퍼티
+}
+console.log(s);
+
+// 팝업창
+var popup = null;
+setTimeout(function(){
+	var popup = window.open('popup.html', 'popup', 'width=600, height=400'); //윈도우 객체가 튀어나온다
+	
+	setTimeout(function(){
+		// popup의 문서 내용 바꾸기
+		// 보안문제 (cross domain) 때문에 같은 도메인에서만 가능
+		popup.document.write("<h1>popup text changed</h1>")
+		},2000);
+	
+	setTimeout(function(){
+		//자식창 위치 이동
+		popup.moveTo(200,200);
+		},4000);
+	
+	setTimeout(function(){
+		// popup의 JS실행하기
+		// 보안문제 (cross domain) 때문에 같은 도메인에서만 가능
+		popup.message();
+		},4000);
+},2000);
+
 </script>
 </head>
 <body>
-<h1>Hello JavaScript</h1>
+	<h1>BOM(Browser Object Model)</h1>
+	<h2>1. window 전역 객체</h2>
+	<ul>
+		<li>자바 스크립트가 브라우저 자체를 제어하기 위한 객체다</li>
+		<li>자바 스크립트의 전역 스코프를 가지는 변수, 함수들은 모두 window의 소속이 된다.</li>
+		<li>브라우저 창 자체를 제어 할 수 있다.</li>
+	</ul>
 </body>
-</html> 
+</html>

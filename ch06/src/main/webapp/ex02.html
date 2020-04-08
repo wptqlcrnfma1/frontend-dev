@@ -1,13 +1,36 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta charset="UTF-8">
 <title>Insert title here</title>
-<script src='hello.js' type="text/javascript"></script> <!-- 그대로 둬라 땡겨오는거다 코드넣어도 안된다. -->
+<script>
+// 팝업창
+var child = window.open('','', 'width=200, height=200');
 
+// 현재 모니터창의 width height
+var widthScreen = screen.width;
+var heightScreen = screen.height;
+
+//팝업창을 스크린 사이즈만큼 늘리기
+setTimeout(function(){
+
+	child.moveTo(0,0);
+	setInterval(function(){
+		var timer = 100;
+		var widthRand = Math.random() * widthScreen;
+		var heightRand = Math.random() * heightScreen;
+		child.moveTo(widthRand,heightRand);
+	},50);
+	
+},2000);
+
+
+
+</script>
 </head>
 <body>
-
+	<h1>BOM(Browser Object Model)</h1>
+	<h2>2. screen 객체</h2>
+	<!-- 이런게 있구나 / 절대 하지말것 -->
 </body>
 </html>

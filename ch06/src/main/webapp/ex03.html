@@ -1,118 +1,44 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
-//코딩할때 literal로 쓰도록 해라
-//생성자함수는 제일 앞 대문자 알파벳 관례
+<script>
+// var property; 함수 안에 타입지정을(var) 안해주면 hoisting 전역으로 올라간다. 
 
-/*
- [기본 타입(primitive type), 유사객체] 메소드가 불려지면 잠시 객체로 만들어졌다가 메소드가 끝나면 만들어진 객체는 사라진다.
- * 1. number
- * 2. boolean
- * 3. String
- * 4. undefined
- * + null도 타입이다?(애매함). object
- 
- [object 타입 : new 생성자 함수를 사용해서 객체 생성]
- Number(); -> object type의 객체 생성
- Boolean(); -> object type의 객체 생성
- String(); -> object type의 객체 생성
- Function(); -> function type의 객체 생성
- Object(); -> object type의 객체 생성
- Array(); -> object type의 객체 생성
- 
- 
- 
- 자바스크립트의 객체를 구분하는 또 다른 방법
- 1. 내장(Built-In, Native)  객체 - 자바스크립트 엔진 내부에 미리 정의되어있는 객체
- 	Number, Boolean과 같은 생성자 함수...
- 	paserInt(), setTimeout, setInterval 와 같은 일반 함수
- 	window 객체 
- 2. 호스트 객체
- 	자바스크립트가 접근하기 위한 브라우저의 객체
- 	document, location, XmlHttpRequest ...
- 3. 사용자 객체
- 	자바스크립트 코드가 엔진에 의해 실행되면서 생성되는 객체들
- 
- 
- */
- var u;
-var i = 10;
-var f = 3.14;
-var b = true;
-var s = 'Hello World';
-var n = null;
-
-var fn = function(a,b){return a+b ;};
-var o = {};
-var a = [];
-
-
-console.log(u+ ":" + typeof(u));
-console.log(i+ ":" + typeof(i));
-console.log(f+ ":" + typeof(f));
-console.log(b+ ":" + typeof(b));
-console.log(s+ ":" + typeof(s));
-console.log(n+ ":" + typeof(n));
-
-console.log("=================================");
-
-console.log(fn+ ":" + typeof(fn));
-console.log(o+ ":" + typeof(o));
-console.log(a+ ":" + typeof(a)); //javaScript에서는 배열과 객체가 거의 차이가 없다. a["1"] 이렇게 접근 가능
-
-
-
-var i2 = new Number(10);
-var b2 = new Boolean(false);
-var s2 = new String("Hello world");
-
-console.log(i2+ ":" + typeof(i2));
-console.log(b2+ ":" + typeof(b2));
-console.log(s2+ ":" + typeof(s2));
-
-var fn2 = new Function("a", "b", "return a+b;"); //이런게 있구나 생각하고 함수를 이렇게 만들지는 않는다. fn과 같은 문법
-var o2 = new Object();
-var a2 = new Array();
-
-console.log(fn2+ ":" + typeof(fn2));
-console.log(o2+ ":" + typeof(o2));
-console.log(a2+ ":" + typeof(a2));
-
-
-
-// 원시타입과 원시타입을 Wrapper 객체는 별 구분없이 사용가능(연산가능)
-console.log(i + i2);
-console.log(s + s2);
-
-// 의아하다) 원시타입도 메소드 호출이 가능하다.
-// 원시타입에 미소드가 호출 될 때 임시 객체가 만들어진다.
-console.log(b.valueOf()); //new Boolean(b).valueof() 객체가 만들어지고 valueof가 불려진다음 객체가 사라진다. 원시타입의 메소드를 부르는게 말이 안되지만 객체를 잠시 생성하고 메소드를 부른 뒤 사라진다. 
-console.log(b2.valueOf());
-
-
-console.log(typeof(Number())); //함수이다.
-
-
-var myNumber = function(value){
-	this.value = value; //number는 아마 이렇게 만들어져 있을것이다.
-	
+var s = "";
+for(var property in location){ //여기서는 var 안써도 상위가 global이라 안써도 된다.
+	s+= (property + ":" + location[property] + "\n");
 }
-var o = new myNumber(10);
-console.log(o.value,typeof(o));
-
-//객체를 함수처럼 사용가능
-console.log(Number("10"));
+console.log(s);
 
 
 </script>
-
 </head>
-
 <body>
-<h1>변수와 데이터 타입</h1>	
+	<h1>BOM(Browser Object Model)</h1>
+	<h2>3. location 객체(주소창)</h2>
+	<h3>page redirection</h3>
+	<button onclick="location.href='http://www.douzone.com';">douzone home</button>
+	
+	<h2>Refresh Page 하는 방법</h2>
+	
+	<!--  5번이 캐시없애고 가장 좋은 방법 사용할 것-->
+	<!-- page Refresh 방법 1 : 버튼-->
+	<button onclick="location = location;">refresh1</button> <!-- location 객체에 location을 넣는거 -->
+	
+	<!-- page Refresh 방법 2 : 버튼-->
+	<button onclick="location.href = location.href">refresh2</button> <!-- location 객체에 location을 넣는거 -->
+	
+	<!-- page Refresh 방법 3 : 버튼-->
+	<button onclick="location.assign('');">refresh3</button> <!-- location 객체에 location을 넣는거 -->
+	
+	<!-- page Refresh 방법 4 : 버튼-->
+	<button onclick="location.replace(location);">refresh4</button> <!-- location 객체에 location을 넣는거 -->
+	
+	<!-- page Refresh 방법 5 : 가장 확실-->
+	<button onclick="location.reload();">refresh5</button> <!-- location 객체에 location을 넣는거 -->
+	
+	
 </body>
 </html>
