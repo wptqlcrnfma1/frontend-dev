@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- 둘다 가져와도 상관없지만 자바스크립트는 덮어버리기 때문에 개발소스버전을 사용 -->
+<!-- 개발소스 버전(내 서버 호스팅) -->
+<!--<script type="text/javascript" src="./jquery/jquery-3.4.1.js"></script>-->
+
+<!-- 압축 버전(내 서버 호스팅) -->
+ <!-- <script type="text/javascript" src="./jquery/jquery-3.4.1.min.js"></script> -->
+ 
+ <!--(CDN 호스팅) CDN : Contents Delivery Network -->
+ <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+	var $object1 = jQuery();
+	console.log(typeof(jQuery), typeof($object1), $object1.jquery);
+	
+	var $object2 = $();
+	console.log(typeof($), typeof($object2), $object2.jquery);
+	
+	console.log(object2);
+</script>
+</head>
+<body>
+<h1>jQuery 로딩</h1>
+</body>
+</html>
+ 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="./jquery/jquery-3.4.1.js"></script>
+<script>
+//반환되는 값이 없을때 null을 반환하지않는다. length를 찍어서 확인해본다. 0 1 2 3 요소들이 없을 뿐 정상 객체 리턴
+window.addEventListener('load', function(){ //로딩이 된 뒤 jquery를 사용하자.
+	var $obj = $('#header'); //id를 고를때는 #을 붙힌다.
+	console.log($obj.length);
+});
+
+jQuery(document).ready(function(){ //addEventListener와 같은 맥락
+	var $obj = $('#header');
+	console.log($obj.length);
+});
+
+
+$(document).ready(function(){ //위 jQuery가 $로 바뀜
+	var $obj = $('#header');
+	console.log($obj.length);
+});
+
+
+
+//추천 : 대체적으로, jQuery를 사용하는 JavaScript 코드는 이 함수가 (entry point)시작이 된다.
+$(function(){ //위 document생략 의미는 다 같다 / 브라우저 시작될때
+	var $obj = $('#header');
+	console.log($obj.length);
+});
+
+//위 방법들 중 선택했다면 일관성있게
+</script>
+</head>
+<body>
+<h1 id='header'>JQuery로 Element를 선택할 시점</h1>
+<h1 id='header2'>JQuery로 Element를 선택할 시점</h1>
+</body>
+</html>

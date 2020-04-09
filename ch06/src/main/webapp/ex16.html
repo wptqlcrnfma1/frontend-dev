@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+//Event Propagation(Event Bubbling)
+// : 특정 엘리먼트에서 이벤트가 발생했을 때, 그 이벤트가 상위 엘리멘트로 전달되어 가는 것.
+// ie8 보다 낮은 버전 : outer-div > inner-div > header > text
+// others : outer-div < inner-div < header < text
+window.addEventListener('load',function(){
+	document.getElementById("outer-div").addEventListener('click', function(){
+		console.log('outer-div');
+	});
+	
+	document.getElementById("inner-div")
+		.addEventListener('click', function(e){
+			//cross browser ( <= IE8 )
+			var event = e || window.event;
+			
+			//prevent propagation(bubbling)
+			event.cancelBubble = true; 							// <= IE8 적어둬도 상관없다
+			event.stopPropagation && event.stopPropagation();	// others(다른 브라우저)
+			
+		//console.log(event); //클릭한 좌표도 있다. > 패턴로그인???
+		console.log('inner-div');
+	});
+	
+	document.getElementById("header").addEventListener('click', function(){
+		console.log('header');
+	});
+	
+	document.getElementById("text").addEventListener('click', function(){
+		console.log('text');
+	});
+});
+</script>
+
+</head>
+<body>
+	<div id='outer-div'>
+		<div id='inner-div'>
+			<h1 id='header'>
+				<span id='text'>text</sapn>
+			</h1>
+		</div>
+	</div>
+</body>
+</html>
