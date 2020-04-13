@@ -2,20 +2,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="./jquery/jquery-1.9.0.js"></script>
-<script type="text/javascript">
-	$( function() {
-		/* 코드를 완성하세요 */
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
-		
-	} );  
+<script>
+	$(function() {
+		setTimeout(function() {
+			$('li:nth-child(3), li:nth-child(5)').remove();
+		}, 2000);
+	});
 </script>
+
 </head>
 <body>
-
-
-<strong>타이틀입니다.</strong>
-<p>내용입니다.</p>
-
+	<ul>
+		<li>1번쨰</li>
+		<li>2번쨰</li>
+		<li>3번쨰</li>
+		<li>4번쨰</li>
+		<li>5번쨰</li>
+		<li>6번쨰</li>
+	</ul>
 </body>
 </html>

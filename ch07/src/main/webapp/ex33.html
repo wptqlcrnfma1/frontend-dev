@@ -2,24 +2,61 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="./jquery/jquery-1.9.0.js"></script>
-<script type="text/javascript">
-	$( function() {
+<style type="text/css">
+* {margin:0; padding:0}
+body {
+	font-family: '맑은 고딕';
+	font-size: 0.75em;
+	color: #333; 
+}
+
+h1 {width:150px; margin:10px auto}
+ul {
+	width:150px;
+	margin:10px auto;
+	list-style-type:none;
+	border-top:1px solid #bbb;
+	}
 	
-		/* 코드를 완성하세요 */
-	} );  
+li {
+	width:128px;
+ 	border-style:solid;
+  	border-width: 0 1px 1px 1px;
+   	border-color:#bbb;
+   	padding:10px;
+   	}
+   	
+li.on {
+	background-color: #217ABF;
+	color: #fff
+}
+</style>
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+<script>
+//css는 자바스크립트에서 건들지마라
+	$(function(){
+		$("ul li")
+			.mouseover(function(){
+				$(this).addClass("on");
+			})
+			.mouseout(function(){
+				$(this).removeClass("on");
+			})
+	});
+		
 </script>
+
 </head>
 <body>
-
-<ul>
-	<li>첫번째 아이템입니다.</li>
-	<li>두번째 아이템입니다.</li>
-	<li>삭제할  아이템입니다.</li>
-	<li>네번째 아이템입니다.</li>
-	<li>삭제할 아이템입니다.</li>
-	<li>다섯 번째 아이템입니다.</li>
-</ul>
-
+	<h1>메뉴리스트</h1>
+	<ul>
+		<li>아이템1</li>
+		<li>아이템2</li>
+		<li class= 'on'>아이템3</li>
+		<li>아이템4</li>
+		<li>아이템5</li>
+	</ul>
 </body>
 </html>

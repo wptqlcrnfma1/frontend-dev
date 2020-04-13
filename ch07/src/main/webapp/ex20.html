@@ -1,19 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0
- Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta http-equiv="Content-Style-Type" content="text/css" />
-<meta http-equiv="Content-Script-Type" content="text/javascript" />
-<title>sample27</title>
-<script type="text/javascript" src="./jquery/jquery-1.9.0.js"></script>
-<script type="text/javascript">
-$(function(){
-	$("#p1").html( "<strong>가나다라마바사아자차카타라하</strong>" );
-});
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
+ 
+ <script>
+ //원래는 덮어버렸는데 추가
+		$(function() {
+		setTimeout(function() {
+			$('#p1').prepend("<strong>가나다라</strong>")
+		}, 2000);
+	});
 </script>
+
 </head>
 <body>
-	<p id="p1"> 이 안에 HTML를 바꿉니다.</p>
+<p id="p1">마바사아자차카타파하</p>
 </body>
 </html>
+ 

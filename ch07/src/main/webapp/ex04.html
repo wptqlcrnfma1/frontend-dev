@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+<script type="text/javascript">
+	//jQuery 오브젝트 알아보기
+	$(function() {
+		var $obj = $(".par"); //obj는 유사배열 ex03보고 원리를 알아야한다.
+
+		console.log($obj);
+		console.log($obj.length);
+		console.log(typeof ($obj) + ":" + ($obj instanceof Array)); //obj는 배열이 아니다.
+		console.log($obj[0]); //jQuery Object가 아니다. HTMLElement이므로 obj.css 이렇게 쓰면 안된다.
+		console.log($obj.get(0)); //jQuery Object가 아니다. HTMLElement이므로 obj.css 이렇게 쓰면 안된다.
+
+		$obj.css("color", "red");
+		$obj.click(function() {
+			// 이벤트 핸들러에서 this는 jQuery객체가 아니다. HTMLElement이다.
+			console.log("clicked");
+			//클릭했을때 this 조절하고싶은 예제
+			// this.css("text.decoration", "underline");(x) 여기 this는 jQuery가 아니라 HTMLElemnets이기 때문에 jQuery 매핑이 필요하다.
+			//$(this).css("text-decoration", "underline");(o)
+
+			// jQuery Object의 모든 메소드(예외 : traverse API)는 호출한 jQuery Object를 반환한다.
+			
+			//mothod chain이 가능하다. 밑의 소스를 한줄로 메소드 chain
+
+			// 			$(this).css("text-decoration", "underline");
+			// 			var $obj = $(this);
+			// 			$obj.text('클릭!');
+
+			$(this).css("text-decoration", "underline").text('클릭!');
+
+		});
+	});
+</script>
+</head>
+<body>
+	<h1>myJQuery 만들기</h1>
+	<p class="par">문장1</p>
+	<p>문장2</p>
+	<p class="par">문장3</p>
+	<p>문장4</p>
+</body>
+</html>

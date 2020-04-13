@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+//선택자 -전체 선택자
+	$(function() {
+		setTimeout(function() {
+			$("li *").css('color', '#f00');
+		}, 2000);
+	});
+</script>
+</head>
+<body>
+	<ul>
+		<li><strong> 텍스트</strong> 텍스트 텍스트 텍스트 텍스트</li>
+		<li>텍스트 텍스트 텍스트 텍스트 텍스트</li>
+		<li>
+			<div>
+				<strong> 텍스트 </strong> 텍스트 텍스트 텍스트 텍스트 <span> 텍스트 </span>
+			</div>
+		</li>
+		<li>텍스트 텍스트 텍스트 텍스트 텍스트</li>
+	</ul>
+</body>
+</html>

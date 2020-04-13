@@ -1,19 +1,42 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0
- Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta http-equiv="Content-Style-Type" content="text/css" />
-<meta http-equiv="Content-Script-Type" content="text/javascript" />
-<title>sample27</title>
-<script type="text/javascript" src="./jquery/jquery-1.9.0.js"></script>
-<script type="text/javascript">
-$(function(){
-	$("#p1").text( "가나다라마바사아자차카타라하" );
-});
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+<script>
+		$(function() {
+		setTimeout(function() {
+			$('#p1').text('안녕하세요');
+			$('#p2').text('<strong>안녕하세요</strong>');
+			console.log($('#p3').text());
+			console.log($('#p4').text()); //문자만 가져온다.
+		}, 2000);
+	});
 </script>
+
 </head>
 <body>
-	<p id="p1"> &lt; abcd &gt; </p>
+	
+	<p id = "p1"></p>
+	<p id = "p2"></p>
+	<p id = "p3">안녕하세요</p>
+	<p id = "p4"><strong>안녕하세요</strong> 라고 인사를 하면 <em>쌩깐다.</em></p>
+	
+	<!-- 
+	* HTML의 escape 문자 *
+	
+	& 		-> &amp;
+	space 	-> &nbsp;
+	<		-> &lt
+	>		-> &gt;
+	'		-> 
+	
+	
+	 -->
+	 
+	 <h2> Black &amp; White </h2>
+	 <h2> this &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; that </h2>
 </body>
 </html>

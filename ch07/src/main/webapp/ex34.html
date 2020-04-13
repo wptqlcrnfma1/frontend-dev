@@ -1,17 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="./jquery/jquery-1.9.0.js"></script>
-<script type="text/javascript">
-	$( function() {
-		/* 코드를 완성하세요 */
-} );  
+<style type='text/css'>
+* {margin: 0; padding:0 }
+.image-viewer {
+	width:420px;
+	margin:50px auto 0 auto;
+	border:2px solid #14733C;
+}
+.image-viewer .buttons {
+	padding:10px 0 0 0;
+	text-align: center;
+}
+.image-viewer div {
+	margin: 0 auto 10px auto;
+	width: 410px;
+}
+.image-viewer div img {
+	display: block;
+	width: 400px;
+	margin: 0 auto;
+}
+</style>
+<script type="text/javascript" src="jquery/jquery-3.4.1.js"></script>
+<script type="text/javascript" src='image-viewer.js'></script>
+<script>
+imageViewer.init();
 </script>
 </head>
 <body>
-
-<h1><a href="http://www.smu.ac.kr" target="_blnk" title="우리학교 홈페이지 가기">홈페이지 가기</a></h1>
-
+	<div class='image-viewer'>
+		<div class="buttons">
+			<button id='btn-change'>이미지변경</button>
+			<button id='btn-slideshow'>슬라이드 시작</button>
+		</div>
+		<div>
+			<img src=''/>
+		</div>
+	</div>
 </body>
 </html>

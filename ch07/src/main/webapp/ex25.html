@@ -2,15 +2,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="./jquery/jquery-1.9.0.js"></script>
-<script type="text/javascript">
-	$( function() {
-		/* 코드를 완성하세요 */
-	} );  
+ <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
+ 
+ <script>
+		$(function() {
+		setTimeout(function() {
+			$('#s1').appendTo('#p1'); //s1을 p1으로 
+		}, 2000);
+	});
 </script>
+
 </head>
 <body>
-<h1 id="h1">타이틀입니다.</h1>
-
+	<p id = 'p1'>EFGHIJKLMNOPQRSTUVWXYZ</p>
+	<p><strong id='s1'>ABCD</strong>efghijklmnopqrstuvwxyz</p>
 </body>
 </html>
+ 
